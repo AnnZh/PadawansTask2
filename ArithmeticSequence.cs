@@ -6,12 +6,11 @@ namespace PadawansTask2
     {
         public static int Calculate(int number, int add, int count)
         {
-            // put your code here
-            //throw new NotImplementedException();
-
             if (number > int.MaxValue || add > int.MaxValue || count > int.MaxValue)
-                throw new ArgumentException();
-            if (number <= 0 || add <= 0 || count <= 0)
+                throw new OverflowException();
+            if (number < int.MinValue || add < int.MinValue || count < int.MinValue)
+                throw new OverflowException();
+            if (count <= 0)
                 throw new ArgumentException();
 
             int n = number;
